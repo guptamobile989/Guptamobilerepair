@@ -78,4 +78,214 @@
         .result-box {
             padding: 15px;
             background: #e0f2fe;
-            border-left: 5px
+            border-left: 5px solid #0284c7;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media(max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Gupta Mobile Repair — Get Exact Mobile Price</header>
+
+<div class="container">
+
+    <!-- Pricing Section -->
+    <div class="section">
+        <h2>📱 Get Exact Price for Your Mobile</h2>
+        <p>Choose your brand, model, storage, color & condition to get exact selling price like Cashify.</p>
+
+        <div class="grid-2">
+            <div>
+                <label>Brand</label>
+                <select id="brand">
+                    <option value="">Select Brand</option>
+                    <option>Apple</option>
+                    <option>Samsung</option>
+                    <option>Xiaomi</option>
+                    <option>OnePlus</option>
+                    <option>Vivo</option>
+                    <option>Oppo</option>
+                    <option>Realme</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Model</label>
+                <select id="model">
+                    <option value="">Select Model</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <label>Storage</label>
+                <select id="storage">
+                    <option value="">Select Storage</option>
+                    <option>32 GB</option>
+                    <option>64 GB</option>
+                    <option>128 GB</option>
+                    <option>256 GB</option>
+                    <option>512 GB</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Color</label>
+                <select id="color">
+                    <option value="">Select Color</option>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Blue</option>
+                    <option>Red</option>
+                    <option>Gold</option>
+                </select>
+            </div>
+        </div>
+
+        <label>Condition</label>
+        <select id="condition">
+            <option value="">Select Condition</option>
+            <option>Like New</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Broken Screen</option>
+        </select>
+
+        <div class="grid-2">
+            <div>
+                <label>Battery Health %</label>
+                <input type="number" id="battery" placeholder="e.g., 85" />
+            </div>
+            <div>
+                <label>Warranty</label>
+                <select id="warranty">
+                    <option value="">Select</option>
+                    <option>In Warranty</option>
+                    <option>Out of Warranty</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="getPrice()">Get Exact Price</button>
+
+        <div class="result-box" id="priceResult"></div>
+    </div>
+
+    <!-- Repair Interface -->
+    <div class="section">
+        <h2>🔧 Mobile Repair Services</h2>
+        <p>Select your device issue to get estimated repair pricing.</p>
+
+        <label>Choose Issue</label>
+        <select id="repairIssue">
+            <option value="">Select Repair Issue</option>
+            <option>Screen Replacement</option>
+            <option>Battery Replacement</option>
+            <option>Charging Port Issue</option>
+            <option>Back Panel Replacement</option>
+            <option>Speaker/Mic Issue</option>
+            <option>Motherboard Repair</option>
+        </select>
+
+        <button onclick="getRepairCost()">Get Repair Estimate</button>
+
+        <div class="result-box" id="repairResult"></div>
+    </div>
+
+</div>
+
+<script>
+    const models = {
+        "Apple": ["iPhone X", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone 13", "iPhone 14"],
+        "Samsung": ["Galaxy A50", "Galaxy A51", "Galaxy S20", "Galaxy S21", "Galaxy S22"],
+        "Xiaomi": ["Redmi Note 7", "Redmi Note 8", "Redmi Note 10", "Mi 11"],
+        "OnePlus": ["OnePlus 6", "OnePlus 7", "OnePlus 8", "OnePlus 9"],
+        "Vivo": ["Vivo V11", "Vivo V15", "Vivo Y20", "Vivo Y21"],
+        "Oppo": ["Oppo A3s", "Oppo F11", "Oppo F17"],
+        "Realme": ["Realme 5", "Realme 6", "Realme 7", "Realme 8"]
+    };
+
+    document.getElementById("brand").addEventListener("change", function () {
+        const brand = this.value;
+        const modelSelect = document.getElementById("model");
+        modelSelect.innerHTML = "<option>Select Model</option>";
+        if (models[brand]) {
+            models[brand].forEach(m => {
+                let opt = document.createElement("option");
+                opt.textContent = m;
+                modelSelect.appendChild(opt);
+            });
+        }
+    });
+
+    function getPrice() {
+        let brand = document.getElementById("brand").value;
+        let model = document.getElementById("model").value;
+        let storage = document.getElementById("storage").value;
+        let condition = document.getElementById("condition").value;
+        let battery = document.getElementById("battery").value;
+        let warranty = document.getElementById("warranty").value;
+
+        if (!brand || !model || !storage || !condition) {
+            alert("Please fill all mandatory fields.");
+            return;
+        }
+
+        // Simple demo price calculation
+        let basePrice = 20000;
+
+        if (condition === "Like New") basePrice += 3000;
+        if (condition === "Good") basePrice += 1500;
+        if (condition === "Average") basePrice -= 1000;
+        if (condition === "Broken Screen") basePrice -= 5000;
+
+        if (battery < 80) basePrice -= 1500;
+
+        if (warranty === "In Warranty") basePrice += 1000;
+
+        document.getElementById("priceResult").style.display = "block";
+        document.getElementById("priceResult").innerHTML = `
+            <b>Estimated Price:</b> ₹${basePrice}  
+            <br><br>
+            We will confirm exact price after inspection.
+        `;
+    }
+
+    function getRepairCost() {
+        let issue = document.getElementById("repairIssue").value;
+        if (!issue) return alert("Select a repair issue");
+
+        const repairPrices = {
+            "Screen Replacement": "₹1500 - ₹8000",
+            "Battery Replacement": "₹800 - ₹2000",
+            "Charging Port Issue": "₹500 - ₹1500",
+            "Back Panel Replacement": "₹700 - ₹2500",
+            "Speaker/Mic Issue": "₹400 - ₹1200",
+            "Motherboard Repair": "₹1500 - ₹6000"
+        };
+
+        document.getElementById("repairResult").style.display = "block";
+        document.getElementById("repairResult").innerHTML = `
+            <b>Estimated Repair Cost:</b> ${repairPrices[issue]}
+            <br><br>Final price depends on mobile inspection.
+        `;
+    }
+</script>
+
+</body>
+</html>
