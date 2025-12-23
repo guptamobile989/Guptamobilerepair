@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupta Mobile Repair | Ahmedgarh | Sell, Buy & Expert Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .brand-pill:hover { transform: scale(1.05); background-color: #eff6ff; border-color: #3b82f6; }
+        .product-card:hover { transform: translateY(-10px); }
+        .gradient-blue { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div>
+                <h1 class="font-extrabold text-xl tracking-tighter text-blue-800 uppercase">Gupta Mobile Repair</h1>
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Expert Since 2005 • Ahmedgarh</p>
+            </div>
+            <div class="hidden lg:flex gap-8 font-bold text-sm">
+                <a href="#sell" class="hover:text-blue-600">Sell Phone</a>
+                <a href="#buy" class="hover:text-blue-600">Buy Used</a>
+                <a href="#parts" class="hover:text-blue-600">Spare Parts</a>
+                <a href="#location" class="hover:text-blue-600">Location</a>
+            </div>
+            <a href="tel:7973346005" class="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:bg-blue-700 transition">Call Nikhil Gupta</a>
+        </div>
+    </nav>
+
+    <section class="bg-white py-16 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">20 Years of Excellence</span>
+                <h2 class="text-5xl md:text-7xl font-black leading-tight mt-6 mb-6">Ahmedgarh's Trusted <span class="text-blue-600">Tech Experts.</span></h2>
+                <p class="text-lg text-slate-500 mb-8">Professional repairs for Realme, Poco, Motorola, and iPhone. Sell your old device for instant cash at the best market rates.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#sell" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 transition">Check Selling Price</a>
+                    <a href="https://wa.me/917973346005" class="border-2 border-slate-200 px-8 py-4 rounded-2xl font-bold hover:border-blue-600 hover:text-blue-600 transition">WhatsApp Support</a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1512428559083-a4979b2b51ff?auto=format&fit=crop&q=80&w=800" class="rounded-[3rem] shadow-2xl relative z-10" alt="Repairing Mobile">
+                <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-8 rounded-3xl z-20 shadow-xl">
+                    <p class="text-4xl font-black italic">Since 2005</p>
+                    <p class="text-sm font-bold opacity-80 uppercase tracking-widest">Gupta Mobile Repair</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sell" class="py-20 bg-blue-50">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h3 class="text-3xl font-black mb-12">Sell Your Old Mobile for Cash</h3>
+            <div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl border border-blue-100">
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <label class="block font-bold mb-3">1. Choose Brand</label>
+                        <select id="brandSelect" class="w-full p-4 bg-slate-50 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
+                            <option value="10000">Realme / Poco / Redmi</option>
+                            <option value="12000">Motorola / Asus</option>
+                            <option value="7000">Tecno / Itel / Infinix</option>
+                            <option value="45000">iPhone Series</option>
+                            <option value="30000">Samsung Premium</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold mb-3">2. Phone Condition</label>
+                        <select id="conditionSelect" class="w-full p-4 bg-slate-50 rounded-2xl border-none ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
+                            <option value="1">Like New / Mint</option>
+                            <option value="0.8">Good / Minor Usage</option>
+                            <option value="0.5">Cracked / Average</option>
+                            <option value="0.2">Dead / Parts only</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-10 bg-blue-600 p-8 rounded-3xl text-white">
+                    <p class="text-xs font-bold uppercase tracking-widest opacity-70">Estimated Shop Payout</p>
+                    <div class="text-5xl font-black my-2">₹<span id="payoutDisplay">10000</span>*</div>
+                    <button onclick="calculatePrice()" class="mt-4 bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:shadow-lg transition">Update Quote</button>
+                </div>
+                <p class="mt-6 text-slate-400 text-xs italic">*Note: Final price is decided by Nikhil Gupta after physical inspection at the counter.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="parts" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h3 class="text-4xl font-black italic underline decoration-blue-600 mb-4">Original Spare Parts</h3>
+            <p class="text-slate-500 font-medium uppercase tracking-widest text-sm">Best Quality Displays & Components</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="bg-blue-600 text-white p-3 rounded-xl"><i class="fa-solid fa-mobile-screen-button text-2xl"></i></div>
+                    <h4 class="text-2xl font-black uppercase tracking-tight">Display Replacement</h4>
+                </div>
+                <table class="w-full text-left">
+                    <thead class="text-xs text-slate-400 uppercase font-bold border-b">
+                        <tr><th class="pb-4">Mobile Brand</th><th class="pb-4 text-right">Starts From</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr><td class="py-4 font-bold">Realme / Poco / Redmi</td><td class="py-4 text-right font-black text-blue-600">₹1,000+</td></tr>
+                        <tr><td class="py-4 font-bold">Motorola / Asus</td><td class="py-4 text-right font-black text-blue-600">₹1,500+</td></tr>
+                        <tr><td class="py-4 font-bold">Tecno / itel / Infinix</td><td class="py-4 text-right font-black text-blue-600">₹1,100+</td></tr>
+                        <tr><td class="py-4 font-bold">Oppo / Vivo / Samsung</td><td class="py-4 text-right font-black text-blue-600">₹1,200+</td></tr>
+                        <tr><td class="py-4 font-bold">Apple iPhone</td><td class="py-4 text-right font-black text-blue-600">₹2,500+</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fa-solid fa-battery-three-quarters"></i></div>
+                        <p class="font-bold">Original Batteries</p>
+                    </div>
+                    <p class="font-black">Starts ₹550</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-orange-100 text-orange-600 p-3 rounded-xl"><i class="fa-solid fa-bolt"></i></div>
+                        <p class="font-bold">Charging Jacks/PCB</p>
+                    </div>
+                    <p class="font-black">Starts ₹250</p>
+                </div>
+                <div class="bg-blue-600 p-8 rounded-3xl text-white">
+                    <p class="font-bold mb-2">Need a Bulk Price?</p>
+                    <p class="text-sm opacity-80 mb-6">We provide spare parts to other shops at wholesale rates. Contact Nikhil for a price list.</p>
+                    <a href="https://wa.me/917973346005" class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold text-sm">WhatsApp Nikhil Gupta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-20 px-4 bg-slate-100">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="rounded-[3rem] overflow-hidden h-[450px] shadow-2xl border-8 border-white">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1152.6841261314!2d75.8360114!3d30.6300055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39107ef4c8476423%3A0x10f2823e66108e7d!2sGUPTA%20MOBILES!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div>
+                <h3 class="text-4xl font-black mb-4">Visit Our Shop</h3>
+                <p class="text-blue-600 font-bold mb-10 text-xl italic leading-none underline decoration-2">Gupta Mobile Repair</p>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl"></i>
+                        <p class="font-bold text-slate-700">Raikot Adda, Opposite Punjab Medical Hall,<br>Ahmedgarh, Punjab 148021</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="fa-solid fa-user-check text-blue-600 text-2xl"></i>
+                        <p class="font-bold text-slate-700 underline">Owner: Nikhil Gupta (+91 7973346005)</p>
+                    </div>
+                </div>
+                <div class="mt-12 flex gap-4">
+                    <a href="https://wa.me/917973346005" class="bg-green-600 text-white p-4 rounded-2xl flex-1 text-center font-bold shadow-lg shadow-green-100">WhatsApp Us</a>
+                    <a href="tel:7973346005" class="bg-blue-600 text-white p-4 rounded-2xl flex-1 text-center font-bold shadow-lg shadow-blue-100">Call Shop</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center">
+        <p class="text-[10px] font-black uppercase tracking-widest text-slate-300">© 2005 - 2025 Gupta Mobile Repair Ahmedgarh | Raikot Adda Branch</p>
+    </footer>
+
+    <script>
+        function calculatePrice() {
+            const brandPrice = parseFloat(document.getElementById('brandSelect').value);
+            const condition = parseFloat(document.getElementById('conditionSelect').value);
+            const result = brandPrice * condition;
+            document.getElementById('payoutDisplay').innerText = Math.round(result);
+        }
+    </script>
+
+</body>
+</html>
